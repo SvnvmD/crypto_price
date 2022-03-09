@@ -58,12 +58,18 @@ class _PriceScreenState extends State<PriceScreen> {
   }
 
   String bitcoinValueInUSD = '?';
+  String ethValueInUSD = '?';
+  String ltcValueInUSD = '?';
 
   void getData() async {
     try {
-      double data = await CoinData().getCoinData(selectedCurrency);
+      double data = await CoinData().getCoinData('BTC', selectedCurrency);
+      double data1 = await CoinData().getCoinData('ETH', selectedCurrency);
+      double data2 = await CoinData().getCoinData('LTC', selectedCurrency);
       setState(() {
         bitcoinValueInUSD = data.toStringAsFixed(0);
+        ethValueInUSD = data1.toStringAsFixed(0);
+        ltcValueInUSD = data2.toStringAsFixed(0);
       });
     } catch (e) {
       print(e);
@@ -100,6 +106,50 @@ class _PriceScreenState extends State<PriceScreen> {
                     vertical: 15.0, horizontal: 28.0),
                 child: Text(
                   '1 BTC = $bitcoinValueInUSD $selectedCurrency',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
+            child: Card(
+              color: Colors.lightBlueAccent,
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 28.0),
+                child: Text(
+                  '1 ETH = $ethValueInUSD $selectedCurrency',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
+            child: Card(
+              color: Colors.lightBlueAccent,
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 28.0),
+                child: Text(
+                  '1 LTC = $ltcValueInUSD $selectedCurrency',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 20.0,

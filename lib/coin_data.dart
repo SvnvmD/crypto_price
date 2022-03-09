@@ -34,8 +34,8 @@ const List<String> cryptoList = [
 ];
 
 class CoinData {
-  Future getCoinData(String currency) async{
-    String requestURL = '$apiURL/BTC/$currency?apikey=$apiKey';
+  Future getCoinData(String crypto, String currency) async{
+    String requestURL = '$apiURL/$crypto/$currency?apikey=$apiKey';
     print('REQUEST: $requestURL');
     final response = await get(Uri.parse(requestURL));
     if (response.statusCode == 200) {
