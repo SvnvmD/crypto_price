@@ -7,7 +7,10 @@ Simple Flutter App to get current crypto prices in different currencies.
 This project uses [Lab: CoinAPI Rest API](https://www.coinapi.io/) to get the prices of
 crypto-currencies in different fiat currencies.
 
-For more detailed explaination of the project, visit my blog
+Create your own dart file(lib/coin_api.dart) to write your REST API config. An example page 
+(lib/coin_api_example.dart)is added to this project for your reference.
+
+For more detailed explanation of the project, visit my blog
 - [Bhutan IO - Building Cryto-price App in Flutter](https://bhutanio.com)
 
 ## Get Flutter Documentation
